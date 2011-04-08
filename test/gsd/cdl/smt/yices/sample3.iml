@@ -1,0 +1,32 @@
+package SAMPLE3 {
+  display "A simple sample to test strings"
+
+  component TEST1 {
+     display "Test 1"
+     requires [is_substr(TEST2,  "libxx.so")]
+  }
+
+  option OPTION1 {
+     display "Option"
+     calculated["libax.so"]
+     flavor data
+  }
+
+  option OPTION2 {
+     display "Option"
+     default_value["JUST A SIMPLE STR SAMPLE"]
+     flavor data
+  }
+
+  component TEST2 {
+     display "Test 2"
+     calculated ["libaa.so " . ((!bool(OPTION1)) ? "libc.so " : "libacde.so")]
+     flavor data
+  }
+
+  component TEST3 {
+     display "Test 2"
+     calculated ["libaa.so " . ((!bool(OPTION2)) ? "libc.so " : "libacde.so")]
+     flavor data
+  }
+}

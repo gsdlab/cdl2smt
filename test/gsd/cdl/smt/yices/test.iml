@@ -1,0 +1,34 @@
+package CYGPKG_HAL{
+  display "eCos HAL"
+
+  component A {
+    display "Platform-independent HAL options"
+    flavor none 
+
+    option B {
+      display "Provide eCos kernel support"
+      requires [C && D]
+      default_value [CYGPKG_KERNEL ]
+    } 
+	
+	option C {
+		active_if [B]
+		implements [I1]
+		flavor booldata
+	}
+	
+	option D{
+		implements [I1]
+		implements [I2]
+	}
+	
+	option E{
+		requires [I1 > 0]
+	}
+	
+	interface I1 {
+		flavor bool
+	}
+	interface I2 {}
+  }
+}

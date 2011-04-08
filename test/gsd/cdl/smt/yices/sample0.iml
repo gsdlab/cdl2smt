@@ -1,0 +1,14 @@
+package SAMPLE0 {
+  display "A simple sample to test strings"
+
+  component TEST1 {
+     display "Test 1"
+     requires [is_substr(TEST2,  "libx.so")]
+  }
+
+  option TEST2 {
+     display "Test 2"
+     default_value["libaaa.so libx.so"]
+     flavor booldata
+  }
+}

@@ -1,0 +1,15 @@
+component COMPONENT {
+  display ""
+
+	option O1{
+		display ""
+		flavor data 
+	}
+
+	option O2 {
+		display "Directory entry size"
+		default_value [32 ]
+		legal_values [16 to bool(O1) ? O1 : 128 ]
+		flavor data 
+	}
+}

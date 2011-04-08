@@ -1,0 +1,22 @@
+package ABC {
+	display "ABC"
+
+	component CYGPKG_IO_SERIAL_FLOW_CONTROL{
+		display "Flow control"
+		default_value [0]
+		flavor bool 
+
+		option CYGDAT_IO_SERIAL_FLOW_CONTROL_DEFAULT {
+		  display "Default flow control method"
+		  legal_values ["NONE" "XONXOFF" "RTSCTS" "DSRDTR" ]
+		  default_value ["NONE"]
+		  flavor data 
+		}
+	}
+}
+
+package CYGPKG_PPP{
+  display "PPP daemon"
+  requires [CYGPKG_IO_SERIAL_FLOW_CONTROL]
+}
+

@@ -1,0 +1,14 @@
+component STARTUP {
+  display "Startup type"
+  legal_values ["RAM" "FLOPPY" "ROM" "GRUB"]
+  default_value ["RAM"]
+  flavor data 
+}
+
+option ROM_MONITOR {
+  display "Work with a ROM monitor"
+  legal_values ["Generic" "GDB_stubs"]
+  default_value [STARTUP == "RAM" ? "GDB_stubs" : 0]
+  requires [STARTUP == "RAM" ]
+  flavor booldata 
+}

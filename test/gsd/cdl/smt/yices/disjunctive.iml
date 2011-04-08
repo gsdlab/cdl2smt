@@ -1,0 +1,27 @@
+component STARTUP {
+  display "Startup type"
+  legal_values ["RAM" "FLOPPY" "ROM" "GRUB"]
+  default_value ["RAM"]
+  flavor data 
+}
+
+option ROM_MONITOR {
+  display "Work with a ROM monitor"
+  legal_values ["Generic" "GDB_stubs"]
+  default_value [STARTUP == "RAM" ? "GDB_stubs" : "Generic"]
+  requires [STARTUP == "RAM" ]
+  flavor booldata 
+}
+
+option CYGBLD_ISO_SCHEDTYPES_HEADER {
+  display "gid_t, pid_t, uid_t implementation header"
+  default_value [0 ]
+  flavor booldata 
+}
+
+option CYGBLD_ISO_TZSET_HEADER{
+  display "tzset() implementation header"
+  default_value [0 ]
+  flavor booldata 
+}
+
